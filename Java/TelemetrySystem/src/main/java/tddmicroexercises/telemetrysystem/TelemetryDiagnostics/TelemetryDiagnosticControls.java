@@ -5,16 +5,16 @@ import tddmicroexercises.telemetrysystem.TelemetryClient.TelemetryClient;
 import tddmicroexercises.telemetrysystem.TelemetryConnection.Connection;
 import tddmicroexercises.telemetrysystem.TelemetryConnection.TelemetryConnection;
 
-public class TelemetryDiagnosticControls {
+public class TelemetryDiagnosticControls implements ITelemetryDiagnosticControls{
     private final String DiagnosticChannelConnectionString = "*111#";
 
     private final ITelemetryClient telemetryClient;
     private final Connection telemetryConnection;
     private String diagnosticInfo = "";
 
-    public TelemetryDiagnosticControls() {
-        telemetryClient = new TelemetryClient();
-        telemetryConnection = new TelemetryConnection();
+    public TelemetryDiagnosticControls(ITelemetryClient telemetryClient, Connection telemetryConnection) {
+        this.telemetryClient = telemetryClient;
+        this.telemetryConnection = telemetryConnection;
     }
 
     public String getDiagnosticInfo() {
